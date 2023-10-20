@@ -49,7 +49,7 @@ BEGIN
             new_row := (
                 SELECT JSONB_OBJECT_AGG(key, value)
                 FROM JSON_EACH(new_row)
-                WHERE key = ANY(_primary_keys || _foreign_keys)
+                WHERE key = ANY(_primary_keys || _foreign_keys) OR key = 'is_deleted'
             );
             IF TG_OP = 'UPDATE' THEN
                 old_row = ROW_TO_JSON(OLD);
