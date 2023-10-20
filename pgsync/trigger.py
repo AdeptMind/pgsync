@@ -71,8 +71,7 @@ BEGIN
         'indices', _indices,
         'tg_op', TG_OP,
         'table', TG_TABLE_NAME,
-        'schema', TG_TABLE_SCHEMA,
-        'is_deleted', COALESCE(NEW.is_deleted, 
+        'schema', TG_TABLE_SCHEMA
     );
 
     -- Notify/Listen updates occur asynchronously,
